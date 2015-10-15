@@ -1,0 +1,58 @@
+div.title patients list
+
+h3.header.basic Choose a patient from the following list:
+div#AlphaSplitButtons
+div#AlphaSplitData
+
+
+
+
+
+//div#listWrapper 
+  div#patList-nav(class="listNav")
+  div#patListBlock
+    div
+      ul#patList
+        li
+          p.last-name {{ guy }} 
+            label some-image
+      table
+        thead
+          tr: th name
+        tbody#patList
+           tr
+             td
+               label {{ guy }}
+               
+      tr(ng-repeat="p in patients.patients")
+             td
+               label {{  p.name  }} 
+             td 
+               a(href='patient/{{p.id}}'){{ p.name }} 
+     ul#patList
+        li(ng-repeat="p in patients.patients")
+             Patient: a(href='patient/{{ p.id }}') {{ p.name }}
+
+
+
+    
+    
+//div(class="something")
+  a(href="/patients") List Patients
+    
+    
+
+  
+      
+//script 
+  |$('#patList').listnav({
+  |  includeAll: true,
+  |  includeOther: true,
+  |  flagDisabled: false,
+  |  //noMatchText: 'No patients exist starting with this letter.',
+  |  showCounts: true,
+  |  cookieName: null,
+  |  onClick: function(letter){ },
+  |  prefixes: ['{{','{'],
+  |  filterSelector: '.last-name'
+  |  });

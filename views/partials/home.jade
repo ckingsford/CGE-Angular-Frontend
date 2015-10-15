@@ -1,0 +1,29 @@
+div
+    div.title 
+      h1 Welcome to the Clinical Genomic Expert!
+      
+    div#sidebar
+      div#login
+        div#login-box
+          form()
+            input.login-input(type='text', ng-model='username', size='30', placeholder='username')
+            input.login-input(type='text', ng-model='password', size='30', placeholder='password')
+            input.login-submit(type='button', ng-click='login(username, password)', value='Submit')
+            
+    div#homepagePanel
+      div#internalBox
+        div#mainDescription
+          p The Clinical Genomic Expert (CGE) is a decision support system to aid physicians in taking clinical decisions
+          based on genetic data and clinical data from the EMR.
+        div#text
+          p Click 
+            a(href='models_list') here 
+            | to view models without login  
+          
+        
+          
+        
+          
+        
+      
+        

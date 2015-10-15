@@ -1,0 +1,97 @@
+div#sidebar
+  script#metamorph-4-start(type="text/x-placeholder")
+  script#metamorph-1-start(type="text/x-placeholder")
+  div#patient-overview
+    div.patient-name-select
+      div.patient-name-label Patient name: 
+      div.patient-name-text 
+        script#metamorph-5-start(type="text/x-placeholder")
+        | {{ patient.name }}
+        script#metamorph-5-end(type="text/x-placeholder")
+ 
+    div.basic-info
+      h1.header.basic
+        button.collapseButton(type="button", data-toggle="collapse", data-target="#basic") Patient Information
+      div#basic.collapse.in
+      table
+        tbody
+          tr
+            td Birthdate
+            td
+              script#metamorph-6-start(type="text/x-placeholder")
+              span {{patientInfo.Birthdate}}
+              script#metamorph-6-end(type="text/x-placeholder")
+          tr
+            td Gender
+            td
+              script#metamorph-7-start(type="text/x-placeholder")
+              span {{patientInfo.Gender}}
+              script#metamorph-7-end(type="text/x-placeholder")
+          tr
+            td MR
+              td
+                script#metamorph-8-start(type="text/x-placeholder")
+                span {{patientInfo.MR}}
+                script#metamorph-8-end(type="text/x-placeholder")
+          tr.last
+            td Acct No.
+            td
+              script#metamorph-9-start(type="text/x-placeholder")
+              span {{patientInfo.acctNo}}
+              script#metamorph-9-end(type="text/x-placeholder")
+
+    div.recent-medication
+      h1.header.basic
+        button.collapseButton(type="button", data-toggle="collapse", data-target="#curMed") Current Medication
+      div#curMed.collapse
+        table
+          tbody
+            tr.dateTopSpan
+              td
+                div Naproxen
+              td 2mg
+            tr.dateSpan
+              td(colspan="2") 03/21/2013 - 04/01/2013
+            tr.dateTopSpan
+              td
+                div Metformin
+              td 3mg
+            tr.dateSpan
+              td(colspan="2") 02/01/2013 - 04/13/2013
+            tr.dateTopSpan
+              td
+                div Aspirin
+              td 1mg
+            tr.dateSpan.last
+              td(colspan="2") 01/19/2013 - 04/05/2013
+
+    div.recent-conditions
+      h1.header.basic
+        button.collapseButton(type="button", data-toggle="collapse", data-target="#curCond") Active Conditions
+      div#curCond.collapse
+        table
+          tbody
+            tr
+              td
+                div Atrial Fibrillation
+                div 03/21/2012
+            tr
+              td
+                div Diabetes, Type 1
+                div 02/01/2011
+            tr.last
+              td
+                div Knee Surgery
+                div 12/19/2010
+
+    div.allergy-medication
+      h1.header.basic
+        button.collapseButton(type="button", data-toggle="collapse", data-target="#medAl") Drug Allergies
+      div#medAl.collapse
+        table
+          tbody
+            tr
+              td
+                div Penicillin
+                div Skin - Rash
+              td Severe

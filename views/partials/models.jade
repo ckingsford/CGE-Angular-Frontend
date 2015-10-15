@@ -1,0 +1,28 @@
+div.title Models list
+
+include sidebar_models
+
+div#mainPanel
+
+//  | <div ui-view></div>
+
+//label template
+    
+    //bla bla
+    //h3.header.basic Models:
+    //div.factors.row-fluid
+      div.span12
+        table.dataTable
+          thead
+            tr
+              th.table-th model id
+              th.table-th name
+              th.table-th creation time
+            tbody
+                tr.row-moderate(ng-repeat="model in models")
+                  td.table-td.center 
+                    a(href='model/{{model.id}}') {{model.id}}
+                  td.table-td.center {{model.name}}
+                  td.table-td.center {{model.creationTime}}
+
+   

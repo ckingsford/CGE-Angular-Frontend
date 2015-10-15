@@ -1,0 +1,19 @@
+
+h3 Analysis {{ modelID }}
+
+div.analysis.row-fluid
+    div
+//        div.name
+            form(action="risk.php", method="get", id="analysis-form")
+                label(for="analysis") Calculated against
+                    a(href="http://www.1000genomes.org", style="padding:5px") 1000 Genomes
+                    | as background/control using model analysis:
+                select#analysis(name="analysis")
+                    option(value="1", selected) Lasso-lambda_1
+                    option(value="2") Logreg-lambda_1
+                    option(value="3") Lasso-lambda_0.01
+                input.submit-btn(value="Change", type="submit")
+//form
+                input(id="hide_mods", type="checkbox")
+                    | Show Modifiers
+include factors

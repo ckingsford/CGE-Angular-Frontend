@@ -1,0 +1,57 @@
+div.factors.row-fluid
+    div
+        table.factors.row-fluid
+            thead
+                tr
+                    th Variant info
+                      table
+                        tr
+                          th Variant
+                          th Gene name
+                    th Variant genotype
+                    th Variant contribution
+                    th Variant effect
+                      table
+                        tr
+                          th Transcript 
+                          th Effect      
+                          th Codon change
+                    th info
+                    //th(colspan="2")
+            tbody
+                tr.row-moderate(ng-repeat="snp in analysis.features | orderObjectBy:'weight'")
+                    //the correct way to do it: orderBy:-weight")
+                    td
+                      table
+                          tr(ng-repeat="annotation in snp.variantAnnotations")
+                            td.factor.Variant
+                              div.name chr: {{annotation.chr}} 
+                              div.name pos: {{annotation.pos}}
+                              div.snp 
+                                a(href="www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?rs={{annotation.rsId}}", target="_blank") {{ annotation.rsId }}
+                            td
+                              div.name {{ annotation.geneName }}
+                    td.effect
+                        span {{ snp.value }}
+                        
+                    td.effect
+                        span {{ snp.weight.toFixed(2) *100 }} %
+                        //span.increase {{ snp.weight}}
+                        
+                    td.effect
+                      table
+                          tr(ng-repeat="annotation in snp.effectAnnotations")
+                            td
+                              div.snp 
+                              a(href="www.ensembl.org/id/{{annotation.transcript}}", target="_blank") {{annotation.transcript}}
+                            td {{ annotation.effect }}
+                            td {{ annotation.codonChange }}
+                        
+                    
+                    
+                    td.learn_more 
+                        a.ember-view()
+                            span Learn More
+                    //td(data-bindattr-3="3")
+
+    div.factor_container

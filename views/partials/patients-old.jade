@@ -1,0 +1,8 @@
+h3 Patients
+
+div
+    ul
+        li(ng-repeat="p in patients.patients")
+             Patient: a(href='patient/{{ p.id }}') {{ p.name }}
+
+div {{ errorStr }}

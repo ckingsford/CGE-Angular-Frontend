@@ -1,0 +1,869 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+  
+  
+
+.indexCtrl {
+	position: relative;
+}
+
+#patientContent{
+	margin-left:200px;
+}
+#mainPanel{
+	margin-left:200px;
+	color: white;
+}
+#homepagePanel{
+	margin-left:300px;
+}
+#homepagePanel #internalBox{
+	margin: 30px 30px 30px 30px;
+	color: white;
+}
+
+#homepagePanel #internalBox #mainDescription{
+	color: #eeeeee;
+	font-size:1.3em;
+	font-family: 'Source Sans Pro';
+    font-weight: 800;
+}
+
+#homepagePanel #internalBox #text{
+	margin-top:30px;
+		font-size:1.1em;
+	font-family: 'Source Sans Pro';
+    font-weight: 500;
+}
+
+#AlphaSplitButtons {margin-left:50px; margin-top: 30px;}
+#AlphaSplitData{margin-left:50px; padding-top: 40px; clear:both;}
+.AlphaSplitShowDataButton{color:white; font-size:1.3em; display:block; float:left; padding:2px 6px; border:1px solid silver; border-right:none; text-decoration:none; }
+.buttons-last { border-right:1px solid silver; }
+.AlphaSplitDataItem{color:white; font-size:1.2em; padding-top:2px; display: block;}
+
+#modelsList {
+	margin-left:30px;
+
+}
+.table-th {
+	color:white;	
+}
+.table-td {
+	color:white;	
+}
+
+
+/*
+.listNav { margin:10px 0px 10px; }
+
+.ln-letters { overflow:hidden; }
+.ln-letters a { color:white; font-size:1.1em; display:block; float:left; padding:2px 6px; border:1px solid silver; border-right:none; text-decoration:none; }
+.ln-letters a.ln-last { border-right:1px solid silver; }
+.ln-letters a:hover,
+.ln-letters a.ln-selected { color:black; background-color:#eaeaea; }
+.ln-letters a.ln-disabled { color:#ccc; }
+.ln-letter-count { text-align:center; font-size:1.1em; line-height:1; margin-bottom:3px; color:#FFFFFF; }
+
+#listWrapper{margin:20px 100px}
+#patListBlock #patList {margin: 20px}
+#patList li { float:left; list-style-type: none; }
+#patList a { display:block; color:white;}
+#patList a:hover { background-color:#eee}
+
+*/
+/*
+#patList a { display:block; color:white; text-align:center; width:100px; border:1px solid silver; padding:10px; margin:0 10px 10px 0; text-decoration:none }
+*/
+
+#zzz {
+	z-index: 99999;
+	background: yellow;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+  
+  
+body {
+  background: #5b5b5b;
+  font-size: 0.9em;
+  font-family: 'Source Sans Pro';
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  min-width: 1024px;
+}
+header {
+  overflow: auto;
+  background: #ececec;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ececec), color-stop(1, #f5f5f5));
+  background: -ms-linear-gradient(bottom, #ececec, #f5f5f5);
+  background: -moz-linear-gradient(center bottom, #ececec 0%, #f5f5f5 100%);
+  background: -o-linear-gradient(#f5f5f5, #ececec);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#ececec', GradientType=0);
+  border-top: #FFF solid 1px;
+  border-bottom: #CCC solid 1px;
+}
+h3.header.basic {
+	color:white;
+}
+header div#doctor-welcome {
+  float: right;
+  margin: 17px 15px 0 0;
+}
+header div#doctor-settings {
+  float: right;
+  border-left: #CCC solid thin;
+  box-shadow: inset 1px 0 0 #FFF;
+  background-image: url(../images/arrow.png);
+  background-repeat: no-repeat;
+  background-position: 0px 3px;
+  width: 50px;
+  height: 57px;
+  display: block;
+  cursor: pointer;
+}
+.bolded {
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+}
+#module {
+  margin-left: 0px; /*200px*/
+}
+#module .buttons {
+  float: right;
+  cursor: pointer;
+  margin: 6px 10px 0 0;
+}
+#module .buttons .save {
+  width: 40px;
+  height: 35px;
+  background: #444;
+  display: inline-block;
+  border: 1px solid rgba(4, 4, 4, 0.25);
+  border-top-color: #555;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  margin-right: -4px;
+  background-image: url(../images/save.png);
+  background-position: 7px 7px;
+  background-repeat: no-repeat;
+  border-radius: 2px;
+}
+#module .buttons .save:hover {
+  background: #333;
+  background-image: url(../images/save.png);
+  background-position: 7px 7px;
+  background-repeat: no-repeat;
+}
+#module .buttons .print {
+  width: 40px;
+  height: 35px;
+  background: #444;
+  display: inline-block;
+  border: 1px solid rgba(4, 4, 4, 0.25);
+  border-top-color: #555;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  background-image: url(../images/print.png);
+  background-position: 8px 7px;
+  background-repeat: no-repeat;
+  border-radius: 2px;
+}
+#module .buttons .print:hover {
+  background: #333;
+  background-image: url(../images/print.png);
+  background-position: 8px 7px;
+  background-repeat: no-repeat;
+}
+#module div.title {
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+  font-size: 1.4em;
+  color: #eee;
+  text-shadow: 0px 0px 3px black;
+  text-transform: uppercase;
+  text-align: center;
+  background: #3f3f3f;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #373737), color-stop(1, #414141));
+  background: -ms-linear-gradient(bottom, #373737, #414141);
+  background: -moz-linear-gradient(center bottom, #373737 0%, #414141 100%);
+  background: -o-linear-gradient(#414141, #373737);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#414141', endColorstr='#373737', GradientType=0);
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+#module .modal {
+  background-color: #f0f0f0;
+}
+#module .modal .modal-header {
+  border-bottom: none;
+  background-image: url(../images/snp.png);
+  background-size: auto 37px;
+  background-position: 8px 16px;
+  background-repeat: no-repeat;
+  padding-left: 45px;
+}
+#module .modal .factor-detail.modal-body {
+  padding: 0 15px;
+  max-height: none;
+}
+#module .modal .factor-detail.modal-body div.section {
+  border: 1px solid rgba(4, 4, 4, 0.15);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+#module .modal .factor-detail.modal-body div.section h4 {
+  background: #f6f6f5;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#module .modal .factor-detail.modal-body div.section .main-info {
+  padding: 15px;
+  text-align: center;
+  background-color: #FFF;
+}
+#module .modal .factor-detail.modal-body div.section span.mutation {
+  color: red;
+}
+#module .modal .factor-detail.modal-body div.section table tbody tr {
+  border-bottom: none !important;
+  border-top: solid thin #e6e6e6;
+}
+#module .modal .factor-detail.modal-body div.section table tbody tr th {
+  background-color: #FFF !important;
+  font-size: 1em;
+}
+#module .modal .factor-detail.modal-body div.section div.publication {
+  padding: 15px;
+  background-color: #FFF;
+}
+#module .modal .factor-detail.modal-body div.section div.publication table.info {
+  margin-top: 5px;
+}
+#module .modal .factor-detail.modal-body div.section div.publication table.info tr {
+  border-top: none;
+  font-size: 0.8em;
+}
+#module .modal .factor-detail.modal-body div.section div.publication table.info tr td {
+  padding: 0px !important;
+}
+#module .modal .factor-detail.modal-body div.section.last {
+  margin-bottom: 15px;
+}
+#module #dosing {
+  margin: 10px;
+}
+#module #dosing .nav-tabs {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+#module #dosing .nav-tabs > :not(.active) > a {
+  background: #999;
+  color: #666;
+}
+#module #dosing .nav-tabs > li > a {
+  padding-right: 8px;
+}
+#module #dosing .nav-tabs > .active > a,
+#module #dosing .nav-tabs > .active > a:hover,
+#module #dosing .nav-tabs > .active > a:focus {
+  color: #2f2f2f;
+  cursor: default;
+  background-color: #fba919;
+  border-top: 1px solid #fdcd83;
+  border-left: none;
+  border-right: none;
+  border-bottom-color: transparent;
+  border-radius: 3px 3px 0 0;
+}
+#module #dosing .nav-tabs > .active > a .close_tab,
+#module #dosing .nav-tabs > .active > a:hover .close_tab,
+#module #dosing .nav-tabs > .active > a:focus .close_tab {
+  display: inline-block;
+  margin-left: 10px;
+  cursor: pointer;
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+  background-color: #c16427;
+  border: #9b4d19 solid thin;
+  padding: 0 5px;
+  border-radius: 2px;
+  color: #f4f4f4;
+}
+#module #dosing .nav-tabs > .active > a .close_tab:hover,
+#module #dosing .nav-tabs > .active > a:hover .close_tab:hover,
+#module #dosing .nav-tabs > .active > a:focus .close_tab:hover {
+  color: #fff;
+}
+#module #dosing .nav-tabs > li > a {
+  border: none;
+  transition: background-color 0.25s ease-in-out;
+  -moz-transition: background-color 0.25s ease-in-out;
+  -webkit-transition: background-color 0.25s ease-in-out;
+}
+#module #dosing .nav-tabs > li > a .close_tab {
+  display: inline-block;
+  margin-left: 10px;
+  cursor: pointer;
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+  background-color: #666;
+  border: #555 solid thin;
+  padding: 0 5px;
+  border-radius: 2px;
+  color: #CCC;
+}
+#module #dosing .nav-tabs > li > a .close_tab:hover {
+  color: #fff;
+}
+#module #dosing .nav-tabs > li > a:hover {
+  background-color: #b1b1b1;
+}
+#module #dosing .tab_title {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+#module #dosing input.condition {
+  background-position: 10px 8px;
+  background-image: url(../images/condition_search_1.png);
+}
+#module #dosing input.drug {
+  background-position: 10px 8px;
+  background-image: url(../images/drug_search_2.png);
+}
+#module #dosing div.color_band {
+  background-color: #fba919;
+  border-top: solid thin #fdcd83;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 5px;
+}
+#module #dosing div.drug {
+  background: #e6e6e6;
+  padding: 20px;
+  color: #5a5a5a;
+}
+#module #dosing div.drug div.session_title {
+  margin-bottom: 25px;
+  text-align: center;
+  clear: both;
+}
+#module #dosing div.drug div.session_title .medication_title {
+  font-size: 1.6em;
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+}
+#module #dosing div.drug div.session_title .label_title {
+  font-size: 1em;
+  margin-bottom: 3px;
+}
+#module #dosing div.drug div.overview {
+  text-align: center;
+}
+#module #dosing div.drug div.overview > div {
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(4, 4, 4, 0.15);
+  margin-bottom: 10px;
+}
+#module #dosing div.drug div.overview > div .name {
+  padding: 20px 0 15px 0;
+  background: #f6f6f5;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+}
+#module #dosing div.drug div.overview > div .name .large {
+  font-size: 2em;
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+}
+#module #dosing div.drug div.overview > div .name .small {
+  font-size: 1em;
+  margin-top: 10px;
+}
+#module #dosing div.drug div.overview > div .value {
+  padding: 20px 0;
+  font-size: 3em;
+  background: white;
+  min-height: 75px;
+  max-height: 120px;
+}
+#module #dosing div.drug div.overview > div .value .typical_dose {
+  width: 219px;
+  height: 120px;
+  display: block;
+  margin: 0 auto;
+  background-image: url(../images/typical_dose.png);
+  background-size: 219px auto;
+}
+#module #dosing div.drug div.overview > div .value .small_date {
+  font-size: 0.4em;
+}
+#module #dosing div.drug div.overview > div .more_padding {
+  padding-top: 65px;
+}
+#module #dosing div.drug div.factors {
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(4, 4, 4, 0.15);
+}
+#module #dosing div.drug div.factors table {
+  width: 100%;
+}
+#module #dosing div.drug div.factors table tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+#module #dosing div.drug div.factors table th {
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+  background: #f6f6f5;
+  padding: 15px;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 1.1em;
+}
+#module #dosing div.drug div.factors table th:first-child {
+  text-align: left;
+}
+#module #dosing div.drug div.factors table th .small {
+  font-size: 0.8em;
+}
+#module #dosing div.drug div.factors table td {
+  padding: 12px 15px;
+  background-color: white;
+}
+#module #dosing div.drug div.factors table td.factor {
+  padding-left: 60px;
+  background-repeat: no-repeat;
+  background-position: 17px center;
+  background-size: auto 45%;
+}
+#module #dosing div.drug div.factors table td.factor.Variant {
+  background-image: url(../images/snp.png);
+}
+#module #dosing div.drug div.factors table td.factor.Condition {
+  background-image: url(../images/condition.png);
+}
+#module #dosing div.drug div.factors table td.factor.Ethnicity {
+  background-image: url(../images/ethnicity.png);
+}
+#module #dosing div.drug div.factors table td.factor .name {
+  font-size: 1.05em;
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+}
+#module #dosing div.drug div.factors table td.factor .type {
+  font-size: 0.8em;
+  line-height: 1em;
+}
+#module #dosing div.drug div.factors table td.effect {
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+  font-size: 1.1em;
+  text-align: center;
+}
+#module #dosing div.drug div.factors table td.effect span {
+  background-repeat: no-repeat;
+  background-position: -30px auto;
+  padding-left: 20px;
+}
+#module #dosing div.drug div.factors table td.effect span.increase {
+  background-image: url(../images/increase.png);
+}
+#module #dosing div.drug div.factors table td.effect span.decrease {
+  background-image: url(../images/decrease.png);
+}
+#module #dosing div.drug div.factors table td.learn_more {
+  text-align: right;
+}
+#module #dosing div.drug div.factors table td.learn_more a {
+  text-decoration: none;
+}
+#module #dosing div.drug div.factors table td.learn_more span {
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  background: #676767;
+  padding: 7px 15px;
+  color: white;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  -webkit-box-shadow: 0 -1px 1px #676767;
+  -moz-box-shadow: 0 -1px 1px #676767;
+  box-shadow: 0 -1px 1px #676767;
+  transition: background-color 0.25s ease-in-out;
+  -moz-transition: background-color 0.25s ease-in-out;
+  -webkit-transition: background-color 0.25s ease-in-out;
+}
+#module #dosing div.drug div.factors table td.learn_more span:hover {
+  background-color: #4b4b4b;
+}
+#module #dashboard {
+  margin: 10px;
+}
+#module #dashboard ul {
+  margin-bottom: 0;
+}
+#module #dashboard div.dash {
+  padding: 20px;
+  color: #5a5a5a;
+}
+#module #dashboard div.dash div.overview2 {
+  text-align: center;
+}
+#module #dashboard div.dash div.overview2 > div {
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(4, 4, 4, 0.15);
+  margin-bottom: 10px;
+}
+#module #dashboard div.dash div.overview2 > div .name2 {
+  padding: 20px 0 15px 0;
+  background: #f6f6f5;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+#module #dashboard div.dash div.overview2 > div .name2 .large {
+  font-size: 2em;
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+}
+#module #dashboard div.dash div.overview2 > div .name2 .small {
+  padding: 0 10px;
+  font-size: 1em;
+  margin-top: 10px;
+}
+#module #dashboard div.dash div.overview2 > div .value2 {
+  padding: 40px 0;
+  font-size: 3em;
+  background: white;
+}
+#sidebar {
+  position: absolute;
+  width: 200px;
+  background-color: #3d3d3d;
+  min-height: 100%;
+}
+
+#sidebar #login{
+  position: absolute;
+  width: 300px;
+  background-color: #3d3d3d;
+  min-height: 100%;
+}
+
+#sidebar #login #login-box{
+	margin-top: 30px;
+	margin-left: 25px;
+}
+#sidebar #login .login-input {
+  font-size: 1.1em;
+  font-family: 'Source Sans Pro';
+  padding: 5px 10px;
+  margin :5px 0px;
+}
+
+#sidebar #login .login-submit{
+    font-size: 1.1em;
+    font-family: 'Source Sans Pro';
+    padding: 5px 10px;
+    margin :10px 0px;
+}
+
+.submit-button{
+    font-size: 1.1em;
+    font-family: 'Source Sans Pro';
+    padding: 5px 10px;
+    margin :10px 10px;
+}
+#model-checkbox-button{
+    font-size: 1.1em;
+    font-family: 'Source Sans Pro';
+    margin :0px 30px;
+}
+#model-checkbox-label{
+    font-size: 1.1em;
+    font-family: 'Source Sans Pro';
+    margin :15px 10px;
+}
+#model-input{
+    font-size: 1.1em;
+    font-family: 'Source Sans Pro';
+    margin :0px 10px;
+}
+#sidebar #box{
+  position: absolute;
+  width: 200px;
+  background-color: #3d3d3d;
+  min-height: 100%;
+  color:white;
+}
+
+#sidebar #box #internal-box{
+	margin-top: 30px;
+	margin-left: 25px;
+}
+#sidebar #box .sidebar-input {
+  font-size: 1.1em;
+  font-family: 'Source Sans Pro';
+  padding: 5px 10px;
+  margin :5px 0px;
+}
+
+#sidebar #box .sidebar-submit{
+    font-size: 1.1em;
+    font-family: 'Source Sans Pro';
+    padding: 5px 10px;
+    margin :10px 0px;
+}
+
+#sidebar #patient-overview {
+  color: white;
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+#sidebar #patient-overview .patient-name-select {
+  height: 43px;
+  padding: 7px 0 0 15px;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #373737), color-stop(1, #414141));
+  background: -ms-linear-gradient(bottom, #373737, #414141);
+  background: -moz-linear-gradient(center bottom, #373737 0%, #414141 100%);
+  background: -o-linear-gradient(#414141, #373737);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#414141', endColorstr='#373737', GradientType=0);
+}
+#sidebar #patient-overview .patient-name-select .patient-name-label {
+  font-size: 0.8em;
+}
+#sidebar #patient-overview .patient-name-select .patient-name-text {
+  font-size: 1.3em;
+  margin-top: -2px;
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+}
+#sidebar #patient-overview img.photo {
+  display: block;
+  margin: 15px auto;
+  width: 170px;
+  border: 1px solid #4e4e4e;
+}
+#sidebar #patient-overview h1 {
+  line-height: 1em;
+  margin: 0;
+  font-size: 1em;
+  padding: 10px 0px 10px 38px;
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: #2a2a2a;
+  background-repeat: no-repeat;
+  background-position: 8% center;
+  border-top: rgba(255, 255, 255, 0.2) solid 1px;
+  border-bottom: #000 solid 1px;
+}
+#sidebar #patient-overview h1 .collapseButton {
+  background: transparent;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  text-transform: uppercase;
+  padding: 0;
+  line-height: 14px;
+  padding-top: 0px;
+  padding-bottom: 1px;
+}
+#sidebar #patient-overview table {
+  color: #f6f6f6;
+  text-shadow: 0 -1px 0 #000000;
+  width: 100%;
+  border-collapse: separate;
+  padding: 0px 0;
+}
+#sidebar #patient-overview table tr td,
+#sidebar #patient-overview table tr th {
+  border-top: solid thin #444;
+  border-bottom: solid thin #2e2e2e;
+  padding: 8px 15px 8px 15px;
+}
+#sidebar #patient-overview table tr.last td,
+#sidebar #patient-overview table tr.dateTopSpan td {
+  border-bottom: none;
+}
+#sidebar #patient-overview table tr.dateTopSpan td {
+  padding: 8px 15px 0px 15px;
+}
+#sidebar #patient-overview table tr.dateSpan td {
+  border-top: none;
+  text-align: left !important;
+  padding: 3px 15px 8px 15px;
+}
+#sidebar #patient-overview div.basic-info h1 {
+  background-image: url(../images/basic.png);
+}
+#sidebar #patient-overview div.basic-info table td:nth-child(2) {
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+}
+#sidebar #patient-overview div.recent-medication h1 {
+  background-image: url(../images/med.png);
+}
+#sidebar #patient-overview div.recent-medication table td:first-child div:nth-child(1) {
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+}
+#sidebar #patient-overview div.recent-medication table td:first-child div:nth-child(2) {
+  font-style: italic;
+}
+#sidebar #patient-overview div.recent-medication table td:last-child {
+  text-align: right;
+  vertical-align: top;
+}
+#sidebar #patient-overview div.allergy-medication h1 {
+  background-image: url(../images/med.png);
+}
+#sidebar #patient-overview div.allergy-medication table td:first-child div:nth-child(1) {
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+}
+#sidebar #patient-overview div.allergy-medication table td:first-child div:nth-child(2) {
+  font-style: italic;
+}
+#sidebar #patient-overview div.allergy-medication table td:last-child {
+  text-align: right;
+  vertical-align: top;
+}
+#sidebar #patient-overview div.recent-conditions h1 {
+  background-image: url(../images/cond.png);
+}
+#sidebar #patient-overview div.recent-conditions table td:first-child div:nth-child(1) {
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+}
+#sidebar #patient-overview div.recent-conditions table td:first-child div:nth-child(2) {
+  font-style: italic;
+}
+#save-modal {
+  background-color: #f0f0f0;
+  color: #5A5A5A;
+}
+#save-modal .modal-header {
+  border-bottom: none;
+}
+#save-modal .factor-detail.modal-body {
+  padding: 0 15px;
+  max-height: none;
+}
+#save-modal .factor-detail.modal-body div.section {
+  border: 1px solid rgba(4, 4, 4, 0.15);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+#save-modal .factor-detail.modal-body div.section h4 {
+  background: #f6f6f5;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#save-modal .factor-detail.modal-body div.section table {
+  background: #FFF;
+  width: 100%;
+}
+#save-modal .factor-detail.modal-body div.section table td {
+  border-top: #ddd solid thin;
+}
+#save-modal .factor-detail.modal-body div.section table .left {
+  width: 50px;
+}
+#save-modal .factor-detail.modal-body div.section table .checkbox {
+  -webkit-appearance: none;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 9px;
+  margin-left: 15px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+}
+#save-modal .factor-detail.modal-body div.section table .checkbox:active,
+#save-modal .factor-detail.modal-body div.section table .regular-checkbox:checked:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+#save-modal .factor-detail.modal-body div.section table .checkbox:checked {
+  background-color: #e9ecee;
+  border: 1px solid #adb8c0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+  color: #99a1a7;
+}
+#save-modal .factor-detail.modal-body div.section table .checkbox:checked:after {
+  content: '\2713';
+  font-size: 14px;
+  position: absolute;
+  top: 0px;
+  left: 3px;
+  color: #99a1a7;
+}
+#save-modal .factor-detail.modal-body div.section table .main-info {
+  padding: 15px 35px;
+  text-align: left;
+  background-color: #FFF;
+  background-image: url(../images/med.png);
+  background-repeat: no-repeat;
+  background-position: 10px 27px;
+}
+#save-modal .factor-detail.modal-body div.section table .main-info .drug-name {
+  font-weight: 600;
+}
+#save-modal .factor-detail.modal-body div.section table .main-info .condition-name {
+  font-size: 0.9em;
+}
+#save-modal .factor-detail.modal-body div.section.last {
+  margin-bottom: 15px;
+}
+#save-modal .factor-detail.modal-body .buttons {
+  float: right;
+  margin-bottom: 15px;
+}
+#save-modal .factor-detail.modal-body .buttons .learn_more {
+  white-space: nowrap;
+  cursor: pointer;
+  font-weight: 400;
+  font-family: "Source Sans Pro";
+  text-transform: uppercase;
+  font-size: 0.9em;
+  background: #676767;
+  border: none;
+  padding: 4px 20px 3px 20px;
+  color: white;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  -webkit-box-shadow: 0 -1px 1px #676767;
+  -moz-box-shadow: 0 -1px 1px #676767;
+  box-shadow: 0 -1px 1px #676767;
+  transition: background-color 0.25s ease-in-out;
+  -moz-transition: background-color 0.25s ease-in-out;
+  -webkit-transition: background-color 0.25s ease-in-out;
+}
+#save-modal .factor-detail.modal-body .buttons .learn_more:hover {
+  background-color: #4b4b4b;
+}

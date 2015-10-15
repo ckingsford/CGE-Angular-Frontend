@@ -1,0 +1,41 @@
+!!!
+html(ng-app="myApp",lang="en")
+  head
+    meta(charset='utf8')
+    base(href='/')
+    title Clinical Genomic Expert Demo
+    link(rel='stylesheet', href='/css/custom-theme/jquery-ui-1.10.2.custom.min.css')
+    link(rel='stylesheet', href='/css/bootstrap.min.css', media="all")
+    link(href="http://fonts.googleapis.com/css?family=Signika:600,400", rel="stylesheet", type="text/css")
+    link(href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600", rel="stylesheet", type="text/css")
+    link(href="/css/listnav.css", rel="stylesheet", type="text/css")
+    script(src="/js/general/jquery-1.9.1.js")
+    script(src="/js/general/jquery-ui-1.10.2.custom.min.js")
+    script(src="/js/general/bootstrap.min.js")
+    script(src="/js/general/jquery.dataTables.js")
+    script(src='/js/utils.js')
+      
+    script
+      $('html').css('visibility','hidden');
+
+    link(href="http://fonts.googleapis.com/css?family=Signika:600,400", rel="stylesheet", type="text/css")
+    link(rel="stylesheet", type="text/css", href="/css/jquery.dataTables.css", media="all")
+    link(rel="stylesheet", type="text/css", href="/css/style.css", media="all")
+    link(rel="stylesheet", type="text/css", href="/css/custom.css", media="all")
+    //link(rel='stylesheet', href='/css/app.css')
+
+  body.ember-application
+    div(ng-controller='MainCtrl', class='mainClass')
+      include header
+      
+      div#module
+        block body
+
+      script
+        $(document).ready(function(){
+          $('html').css('visibility','visible');
+          $( "#accordion" ).accordion({
+            collapsible: true
+          });
+          $( "#tabs" ).tabs();
+        });

@@ -1,0 +1,18 @@
+div(id='PatientAnalysisWait', ng-hide='modelReceived')
+       h3 Please wait while model {{modelId}} is being applied on {{patient.name}}
+       img(src='images/preloader_transparent.gif')
+div(id='PatientAnalysisResults', ng-show='modelReceived')
+     div.analysis.row-fluid
+       div
+         form(action="XXX", method="get", id="analysis-form")
+           h3 Predicted Risk: {{predictionValue}} %
+           label(for="analysis") Calculated using
+             a(href="http://www.1000genomes.org", target='_blank', style="padding:5px") 1000 genomes project
+             | as background/control using model analysis:
+         div
+           h4 Model details: 
+             label Algorithm: {{modelInfo.details.algorithmName}} 
+             label Parameters: {{modelInfo.details.algParameters}} 
+         div  
+           h3 {{ patient.name }} has the following relevant variations: 
+         include factors  

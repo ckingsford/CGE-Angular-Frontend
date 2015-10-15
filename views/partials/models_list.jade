@@ -1,0 +1,31 @@
+div.title Models list
+
+include sidebar_models
+
+div#mainPanel
+  div(id='modelsWait', ng-hide='modelsReceived')
+       h3 Please wait while list is being retrieved 
+       img(src='images/preloader_transparent.gif')
+  div(id='modelsResults', ng-show='modelsReceived')
+    div.factors.row-fluid
+      div.span12
+        table.dataTable
+          thead
+            tr
+              th.table-th Model id
+              th.table-th Name
+              th.table-th Creation time
+              th.table-th Algorithms used
+              th.table-th Parameters used
+              th.table-th Actions
+          tbody
+              tr.row-moderate(ng-repeat="model in models | orderObjectBy:'id'")
+                  td.table-td.center 
+                    a(href='model/{{model.id}}') {{model.id}}
+                  td.table-td.center {{model.name}}
+                  td.table-td.center {{model.creationTime}}
+                  td.table-td.center {{model.analyses[0].details.algorithmName}}
+                  td.table-td.center {{model.analyses[0].details.algParameters}}
+                  td.table-td.center 
+                    input.submit-button(type='button', ng-click="removeModel(model.id)", value='Remove')
+                        

@@ -1,0 +1,21 @@
+div.title Run Model
+
+include sidebar_models
+
+div#mainPanel
+  label#model-checkbox-label Save model to Database
+    input#model-checkbox-button(type='checkbox', ng-click="toggleSelection()", value="{{saveModelToDB}}")   
+  div(id='divShowNameField', ng-show='saveModelToDB')
+    input#model-input(type='text', ng-model='modelName', size='70', placeholder='Insert name for the model')
+  div 
+  input.submit-button(type='button', ng-click="runModel('gflasso')", value='Run GFLasso')
+  input.submit-button(type='button', ng-click="runModel('lasso')", value='Run Lasso')
+  input.submit-button(type='button', ng-click="runModel('logreg')", value='Run Sparse logistic regression')
+
+  div(id='ModelRunWait', ng-show='modelRunReceived == 1')
+    h3 Please wait while model is running
+    img(src='images/preloader_transparent.gif')
+    
+  div(id='ModelRunOutput', ng-show='modelRunReceived == 2')
+    ul(ng-repeat="line in output")
+      li {{line}}

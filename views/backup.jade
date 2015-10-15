@@ -1,0 +1,173 @@
+extends layout
+
+block body
+  div(ng-controller='AppCtrl')
+    //h2 Hi {{name}}
+    h2 File processing test
+    //input#inputFiles(type="file", multiple) // simple file selector
+    .example
+      #drop_zone
+        p.
+          Drop files here
+    output#outputFileList
+    input#hiddenToSendFileList(type="hidden")
+    input#readFile(type="button", value="read file", onclick="readFile();")
+    input#abortRead(type="button", value="abort read", onclick="abortRead();")
+    #progress_bar
+      .percent
+        p.
+          0%
+    //input#sendMsgButton(type="button", value="send message", onclick="sendMessage();")
+    output#filecontent
+    //input#msgText(type="input", value="{{name}}")
+    //input#popMsgButton(type="button", value="pop", onclick="popMsg();")
+    ul.menu
+      li
+        a(href='view1') view1
+      li
+        a(href='view2') view2
+
+    div(ng-view)
+
+    div
+      | Angular seed app: v
+      span(app-version)
+
+  script(src='js/lib/angular/angular.js')
+  script(src='js/app.js')
+  script(src='js/services.js')
+  script(src='js/controllers.js')
+  script(src='js/filters.js')
+  script(src='js/directives.js')
+
+  script.(type='text/javascript')
+    function popMsg(s) {
+      var a = document.getElementById("msgText").value;
+      alert(a);
+    };
+    
+    
+  script.(type='text/javascript')
+    function sendMessage() {
+      socket= new WebSocket('ws:localhost:8887');
+      //alert("open socket - simple");
+      socket.onopen= function() {
+        var toSend = document.getElementById("hiddenToSendFileList").value;
+        alert("Sending: " + toSend);
+        socket.send(toSend);
+      };
+      socket.onmessage= function(s) {
+        alert('got reply: '+s.data);
+      };
+    }
+    
+    
+  script.(type='text/javascript')
+    var files;
+    var timeStart;
+    var progress = document.querySelector('.percent');
+    
+    function abortRead() {
+      reader.abort();
+    }
+  
+    function readFile() {
+        console.time('Timer');
+        timeStart = performance.now();
+        // Reset progress indicator on new file selection.
+        progress.style.width = '0%';
+        progress.textContent = '0%';
+       
+        f =  files[0];
+        var reader = new FileReader();
+        reader.readAsText(f,"UTF-8");
+        // Handle progress, success, and errors
+        reader.onprogress = updateProgress;
+        reader.onload = loaded;
+        reader.onerror = errorHandler;
+        reader.onabort = function(e) {
+          alert('File read cancelled');
+        };
+        reader.onloadstart = function(e) {
+          document.getElementById('progress_bar').className = 'loading';
+        };
+    }
+    
+    function handleFileSelect(evt) {
+      evt.stopPropagation();
+      evt.preventDefault();
+      
+      //var files = evt.target.files; // FileList object  // files is a FileList of File objects. List some properties.
+      files = evt.dataTransfer.files;
+      var output = [];
+      var sendList = [];
+      for (var i = 0, f; f = files[i]; i++) {
+        if (!f.type.match('text*')) {
+          alert("not a text file");
+          continue;
+        }
+        output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                  f.size, ' bytes, last modified: ',
+                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                  '</li>');
+        sendList.push(escape(f.name));
+      }
+      document.getElementById('outputFileList').innerHTML = '<ul>' + output.join('') + '</ul>';
+      document.getElementById('hiddenToSendFileList').value = sendList.join(';');
+      
+    }
+    
+    function updateProgress(evt) {  // evt is an ProgressEvent.
+      if (evt.lengthComputable) {
+        var percentLoaded = Math.round((evt.loaded / evt.total) * 100);  // Increase the progress bar length.
+        if (percentLoaded < 100) {
+          progress.style.width = percentLoaded + '%';
+          progress.textContent = percentLoaded + '%';
+        }
+      }
+    }
+    
+    function loaded(evt) {  // Obtain the read file data // Ensure that the progress bar displays 100% at the end.
+      progress.style.width = '100%';
+      progress.textContent = '100%';
+      setTimeout("document.getElementById('progress_bar').className='';", 5000);
+      var timer = console.timeEnd('Timer');
+      
+      var timeEnd = performance.now();
+      var timeElapsed = timeEnd - timeStart;
+      alert(timeElapsed.toFixed(0)+"ms");
+      
+      var fileString = evt.target.result;  // Handle UTF-16 file dump 
+      var fileLength = fileString.length;
+      var stringToShow = fileString.substring(0,99);
+      document.getElementById('filecontent').innerHTML = '<ul>' + '<strong> Number of chars: '+fileLength + '</strong> &nbsp' +stringToShow + '......</ul>';
+    }
+
+    function errorHandler(evt) {
+      switch(evt.target.error.code) {
+        case evt.target.error.NOT_FOUND_ERR:
+          alert('File Not Found!');
+          break;
+        case evt.target.error.NOT_READABLE_ERR:
+          alert('File is not readable');
+          break;
+        case evt.target.error.ABORT_ERR:
+          break; // noop
+        default:
+          alert('An error occurred reading this file.');
+      };
+    }
+    
+    //document.getElementById('inputFiles').addEventListener('change', handleFileSelect, false); //simple file selector
+    
+    function handleDragOver(evt) {
+      evt.stopPropagation();
+      evt.preventDefault();
+      evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+    }
+    
+    // Setup the dnd listeners.
+    var dropZone = document.getElementById('drop_zone');
+    dropZone.addEventListener('dragover', handleDragOver, false);
+    dropZone.addEventListener('drop', handleFileSelect, false);
+    //document.getElementById('inputFiles').addEventListener('change', handleFileSelect, false); //simple file selector

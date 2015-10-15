@@ -1,0 +1,30 @@
+div 
+  div.title Model
+
+  include sidebar_models
+  
+  div#mainPanel
+    div(id='divWaitModel', ng-hide='modelReceived')
+        h3 Model is being retrieved from the database
+        img(src='images/preloader_transparent.gif')
+    div(id='divShowModel', ng-show='modelReceived')  
+      h3.header.basic Model {{modelId}}:
+      h5 algorithm: {{model.details.algorithmName}}
+      h5 parameters: {{model.details.algParameters}}
+      h5 additional info: {{model.details.additionalInfo}}
+      div.factors.row-fluid
+        div.span12
+          table.dataTable
+            thead
+              tr
+                th.table-th Feature id
+                th.table-th Feature type
+                th.table-th Response variable
+                th.table-th Beta value
+            tbody
+              tr(ng-repeat="feature in model.model")
+                td.table-td.center {{feature.id}}
+                td.table-td.center {{feature.type}}
+                td.table-td.center {{feature.var}}
+                td.table-td.center {{feature.val}}
+     

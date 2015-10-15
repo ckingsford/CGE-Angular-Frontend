@@ -1,0 +1,25 @@
+div#sidebar 
+  include sidebar_patient
+
+div.title Obesity Models
+
+div#patientContent
+  //label here
+  //div(ng-include='sidebar_main')
+  
+
+  
+  //h4 Models
+  div#module
+    div#dosing
+      div.results
+        ul.ember-view.nav.nav-tabs.tab_title
+            li(ng-class="{active:$first}", ng-repeat="m in models.modelIds") 
+              a(href='/patient/{{ patient.id }}/{{ m }}') model {{ m }}
+        div.color_band
+          div.drug.container-fluid
+            div.analysis.row-fluid 
+              div(ui-view class="analysisTab")         
+              
+                  
+                   
